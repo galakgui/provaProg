@@ -14,18 +14,21 @@ public class MediaHarmonicaCalculator {
     }
     
     public double calcula() throws Exception {
-        double not = 0;
+       
+        double note = 0;
+        double note1 = 0;
         double notaFinal = 0;
         if(notas.size()>2){
-            for(ItemMedia im: notas){
-                not += (im.getPeso() / im.getNota());
+            for(ItemMedia val: notas){
+                note = (val.getPeso() / val.getNota());
+                note1 = note1 + note;
             }
-            notaFinal = notas.size() / not;
+            notaFinal = notas.size() / note1;
             
         }else{
-            throw new Exception("Quantidade de notas insuficientes");
+            throw new Exception("Notas insuficientes");
         }
-        return not;
+        return notaFinal*10;
     }
 
    public void addNota(ItemMedia item) {
